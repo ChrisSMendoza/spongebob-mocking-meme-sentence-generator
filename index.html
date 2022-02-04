@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+    <h1>Spongebob Mock Meme Generate</h1>
+
+    <p id="spongebob-mock-formatted-text"></p>
+
+    <input type="text" id="textInput" />
+
+    </iframe>
+
+</body>
+
+<style>
+    #generate-spongebob-meme-iframe {
+        /* TODO: do not leave as vh units */
+        height: 80vh;
+        width: 80%;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function flipACoin() {
+        // This magic number is okay because you're a wizard Harry.
+        return Math.floor(Math.random() * 2); // 0 or 1
+    }
+
+    function spongebobMockMemeGenerate(text) {
+        const lettersForMeme = [];
+
+        for (var i = 0; i < text.length; i++) {
+            const letter = text.charAt(i);
+
+            if (flipACoin() === 1) {
+                lettersForMeme.push(letter.toUpperCase());
+            } else {
+                lettersForMeme.push(letter.toLowerCase());
+            }
+        }
+        return lettersForMeme.join("");
+    }
+
+    function showMockMemeText(event) {
+        const userText = event.target.value;
+
+        const mockMemeText = spongebobMockMemeGenerate(userText);
+
+        const displayText = document.querySelector("#spongebob-mock-formatted-text");
+        displayText.textContent = mockMemeText;
+
+    }
+
+    const textInput = document.querySelector("#textInput");
+    textInput.addEventListener("input", showMockMemeText);
+
+    // #spongebobMockFormattedText
+
+
+    // const { contentDocument } = document.querySelector("#generate-spongebob-meme-iframe");
+
+    // const topTextInput = contentDocument.querySelector("textarea:first-child");
+
+    // topTextInput.value = "Set from JS"
+</script>
+
+</html>
