@@ -20,7 +20,7 @@
 
             <h1 class="title">Spongebob Mock Meme Generate</h1>
 
-            <p id="spongebob-mock-formatted-text"></p>
+            <input id="spongebob-mock-formatted-text" readonly></input>
 
             <!-- Text input and copy button are on the same line -->
             <div class="field is-grouped">
@@ -106,9 +106,9 @@
 
         const mockMemeText = spongebobMockMemeGenerate(userText);
 
-        const displayText = document.querySelector("#spongebob-mock-formatted-text");
+        const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
 
-        displayText.textContent = mockMemeText;
+        outputTextField.value = mockMemeText;
     }
 
     const textInput = document.querySelector("#textInput");
