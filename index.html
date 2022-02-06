@@ -15,6 +15,8 @@
 
     <input type="text" id="textInput" />
 
+    <button id="copy-to-clipboard-button">Copy</button>
+
     </iframe>
 
 </body>
@@ -40,7 +42,9 @@
         for (var i = 0; i < text.length; i++) {
             const letter = text.charAt(i);
 
-            if (flipACoin() === 1) {
+            // We favor lowercase letters since it looks better 
+
+            if (Math.random() < .30) {
                 lettersForMeme.push(letter.toUpperCase());
             } else {
                 lettersForMeme.push(letter.toLowerCase());
@@ -55,12 +59,15 @@
         const mockMemeText = spongebobMockMemeGenerate(userText);
 
         const displayText = document.querySelector("#spongebob-mock-formatted-text");
-        displayText.textContent = mockMemeText;
 
+        displayText.textContent = mockMemeText;
     }
 
     const textInput = document.querySelector("#textInput");
     textInput.addEventListener("input", showMockMemeText);
+
+    const copyToClipboardButton = document.querySelector("#copy-to-clipboard-button");
+    copyToClipboardButton.addEventListener("click", (event) => console.log(event))
 
     // #spongebobMockFormattedText
 
