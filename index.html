@@ -13,9 +13,18 @@
 
     <p id="spongebob-mock-formatted-text"></p>
 
-    <input type="text" id="textInput" />
+    <!-- User text input and copy button -->
+    <div class="margin-b">
+        <input type="text" id="textInput" />
 
-    <button id="copy-to-clipboard-button">Copy</button>
+        <button id="copy-to-clipboard-button">Copy</button>
+    </div>
+
+    <div>
+
+        <a href="https://imgflip.com/memegenerator/102723630/triggerpaul">Visit meme generator to paste results</a>
+
+    </div>
 
 </body>
 
@@ -25,13 +34,24 @@
         height: 80vh;
         width: 80%;
     }
+
+    .margin-b {
+        margin-bottom: 20px;
+    }
 </style>
 
 
 <script type="text/javascript">
     function flipACoin() {
-        // This magic number is okay because you're a wizard Harry.
-        return Math.floor(Math.random() * 2); // 0 or 1
+        // Magic numbers are not okay.
+        // I believe this is the ceiling value for the 
+        // random number that's generated. It's non-inclusive,
+        // only the numbers up to it, but not actually it.
+        // Example, "* 4", could output: 0, 1, 2, 3
+
+        // Hence this is 0 or 1, the odds are 50/50,
+        // like flipping a coin.
+        return Math.floor(Math.random() * 2);
     }
 
     function spongebobMockMemeGenerate(text) {
