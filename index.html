@@ -67,16 +67,19 @@
     textInput.addEventListener("input", showMockMemeText);
 
     const copyToClipboardButton = document.querySelector("#copy-to-clipboard-button");
-    copyToClipboardButton.addEventListener("click", (event) => console.log(event))
+    copyToClipboardButton.addEventListener("click", handleOnCopyToClipboard)
 
-    // #spongebobMockFormattedText
+    function handleOnCopyToClipboard(event) {
+        // Consideration: can't we just run the logic ourselves?
+        // No, because that would generate another one, so it wouldn't 
+        // match what's on the screen... Update the output text too??
 
+        // Get the meme formatted text that's shown to the user
+        const { textContent: spongebobMockMemeText } = document.querySelector("#spongebob-mock-formatted-text");
 
-    // const { contentDocument } = document.querySelector("#generate-spongebob-meme-iframe");
-
-    // const topTextInput = contentDocument.querySelector("textarea:first-child");
-
-    // topTextInput.value = "Set from JS"
+        // Copy the text to their clipboard, user can paste it now
+        navigator.clipboard.writeText(spongebobMockMemeText);
+    }
 </script>
 
 </html>
