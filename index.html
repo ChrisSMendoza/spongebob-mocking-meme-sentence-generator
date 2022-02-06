@@ -19,11 +19,14 @@
 
     <p id="spongebob-mock-formatted-text"></p>
 
-    <!-- User text input and copy button -->
-    <div class="margin-b">
-        <input type="text" id="textInput" />
-
-        <button id="copy-to-clipboard-button">Copy</button>
+    <!-- Text input and copy button are on the same line -->
+    <div class="field is-grouped">
+        <div class="control">
+            <input type="text" id="textInput" class="input" />
+        </div>
+        <div class="control">
+            <button id="copy-to-clipboard-button" class="button is-primary">Copy</button>
+        </div>
     </div>
 
     <div>
