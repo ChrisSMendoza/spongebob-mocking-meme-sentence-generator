@@ -1,6 +1,8 @@
-const assert = require('node:assert')
-const test = require('node:test')
+import { strictEqual } from 'node:assert'
+import test from 'node:test'
+
+import { generateSpongebobMockMemeText } from './spongebob-mock-meme-generate.js'
 
 test("Syncronous add", () => {
-    assert.strictEqual(1, 1)
+    strictEqual(1, 1)
 })
