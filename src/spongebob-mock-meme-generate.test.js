@@ -3,10 +3,17 @@ import test from 'node:test'
 
 import { generateSpongebobMockMemeText } from './spongebob-mock-meme-generate.js'
 
-test("Generates meme text", () => {
-    const memeText = generateSpongebobMockMemeText("this text is totally not mocking you")
 
-    strictEqual(true, !!memeText)
+// TODO: Base test around the number of lowercase and uppercase letters
+test("Generates meme text", () => {
+    const sentence = "this text is totally not mocking you";
+    const memeText = generateSpongebobMockMemeText(sentence)
+    // Naively test there's at least 1 lowercase and uppercase letter
+    const hasLowercase = [...memeText].some(isLowerCase)
+    const hasUppercase = [...memeText].some(isUpperCase)
+
+    strictEqual(hasLowercase, true)
+    strictEqual(hasUppercase, true)
 })
 
 test("Lowercase letter detected", () => {
