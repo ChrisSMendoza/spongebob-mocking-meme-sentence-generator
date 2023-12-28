@@ -6,14 +6,14 @@ textInput.addEventListener("input", showMockMemeText);
 function showMockMemeText(event) {
     const userText = event.target.value;
 
-    const mockMemeText = spongebobMockMemeGenerate(userText);
+    const mockMemeText = generateSpongebobMockMemeText(userText);
 
     const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
 
     outputTextField.value = mockMemeText;
 }
 
-function spongebobMockMemeGenerate(text) {
+function generateSpongebobMockMemeText(text) {
     const lettersForMeme = [];
 
     for (var i = 0; i < text.length; i++) {
