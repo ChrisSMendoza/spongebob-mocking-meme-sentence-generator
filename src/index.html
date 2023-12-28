@@ -23,7 +23,10 @@
             <div>
                 <p class="overlay-text">NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT</p>
 
-                <img src="https://ftw.usatoday.com/wp-content/uploads/sites/90/2017/05/spongebob.jpg?w=1000&h=600&crop=1" />
+                <img 
+                    src="https://ftw.usatoday.com/wp-content/uploads/sites/90/2017/05/spongebob.jpg?w=1000&h=600&crop=1" 
+                    class="meme-preview"
+                />
             </div>
 
             <div class="field">
@@ -73,6 +76,12 @@
     .overlay-text {
         position: relative;
         top: 20px
+    }
+
+    .meme-preview {
+        height: 80vh;
+        width: 80vw;
+        object-fit: cover;
     }
 </style>
 
