@@ -1,19 +1,5 @@
 
-
-const textInput = document.querySelector("#textInput");
-textInput.addEventListener("input", showMockMemeText);
-
-function showMockMemeText(event) {
-    const userText = event.target.value;
-
-    const mockMemeText = spongebobMockMemeGenerate(userText);
-
-    const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
-
-    outputTextField.value = mockMemeText;
-}
-
-function spongebobMockMemeGenerate(text) {
+export function generateSpongebobMockMemeText(text) {
     const lettersForMeme = [];
 
     for (var i = 0; i < text.length; i++) {
@@ -28,15 +14,4 @@ function spongebobMockMemeGenerate(text) {
         }
     }
     return lettersForMeme.join("");
-}
-
-const copyToClipboardButton = document.querySelector("#copy-to-clipboard-button");
-copyToClipboardButton.addEventListener("click", handleOnCopyToClipboard)
-
-function handleOnCopyToClipboard() {
-    // Get the meme formatted text that's shown to the user
-    const { value: spongebobMockMemeText } = document.querySelector("#spongebob-mock-formatted-text");
-
-    // Copy the text to their clipboard, user can paste it now
-    navigator.clipboard.writeText(spongebobMockMemeText);
 }

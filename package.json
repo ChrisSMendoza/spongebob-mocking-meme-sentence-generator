@@ -1,0 +1,23 @@
+{
+  "name": "spongebob-mocking-meme-sentence-generator",
+  "version": "1.0.0",
+  "description": "Barebones web front-end to generate the Spongebob mocking meme text",
+  "main": "spongebob-mock-meme-generate.js",
+  "type": "module",
+  "scripts": {
+    "test": "node src/spongebob-mock-meme-generate.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator.git"
+  },
+  "keywords": [
+    "Spongebob"
+  ],
+  "author": "Chris Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator/issues"
+  },
+  "homepage": "https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator#readme"
+}
