@@ -17,6 +17,18 @@ test("Lowercase letter detected", () => {
     strictEqual(isLowerCase('Z'), false)
 })
 
+test("Uppercase letter detected", () => {
+    strictEqual(isUpperCase('A'), true)
+    strictEqual(isUpperCase('Z'), true)
+
+    strictEqual(isUpperCase('z'), false)
+    strictEqual(isUpperCase('a'), false)
+})
+
 function isLowerCase(char) {
     return char === char.toLowerCase()
+}
+
+function isUpperCase(char) {
+    return char === char.toUpperCase()
 }
