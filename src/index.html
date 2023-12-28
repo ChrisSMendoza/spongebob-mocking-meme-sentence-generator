@@ -20,13 +20,14 @@
 
             <h1 class="title">Spongebob Mock Meme Generate</h1>
 
-            <div>
-                <p class="overlay-text">NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT NoT realLy the bESt EXampLe texT</p>
-
+            <div class="overlay-container">
                 <img 
-                    src="https://ftw.usatoday.com/wp-content/uploads/sites/90/2017/05/spongebob.jpg?w=1000&h=600&crop=1" 
-                    class="meme-preview"
+                    src="https://ftw.usatoday.com/wp-content/uploads/sites/90/2017/05/spongebob.jpg?w=1000&h=600&crop=1"
                 />
+
+                <div class="overlay-text">
+                    NoT realLy the bESt EXampLe texT but this'll work
+                </div>
             </div>
 
             <div class="field">
@@ -73,10 +74,24 @@
         height: 26px;
     }
 
-    .overlay-text {
-        position: relative;
-        top: 20px
+    .overlay-container {
+    position: relative;
+    display: inline-block;
     }
+
+    .overlay-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Text color */
+    font-size: 24px; /* Adjust text size */
+    font-weight: bold; /* Adjust font weight */
+    text-align: center; /* Center text */
+    background: rgba(0, 0, 0, 0.7); /* Background color with transparency */
+    padding: 10px 20px; /* Adjust padding */
+    }
+
 
     .meme-preview {
         height: 80vh;
