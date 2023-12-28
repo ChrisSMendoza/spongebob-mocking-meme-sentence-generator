@@ -11,3 +11,25 @@ Requires python 3 (comes pre-installed on MacOS)
 ```sh
 python3 -m http.server --directory src
 ```
+
+## Test
+```sh
+npm run test
+```
+
+```
+> spongebob-mocking-meme-sentence-generator@1.0.0 test
+> node src/spongebob-mock-meme-generate.test.js
+
+✔ Generates meme text (1.381362ms)
+✔ Lowercase letter detected (0.115193ms)
+✔ Uppercase letter detected (0.119585ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10.414941
+```
