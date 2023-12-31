@@ -16,6 +16,20 @@ test("Generates meme text", () => {
     strictEqual(hasUppercase, true)
 })
 
+test("Counts number of letters in sentence", () => {
+    const sentence = "this text is totally not mocking you";
+    let count = 0;
+
+    for(const letter of sentence) {
+        let isLetter = RegExp(/^\p{L}/,'u').test(letter)
+
+        if(isLetter) {
+            count += 1;
+        }
+    }
+    strictEqual(count, 30)
+});
+
 test("Lowercase letter detected", () => {
     strictEqual(isLowerCase('a'), true)
     strictEqual(isLowerCase('z'), true)
