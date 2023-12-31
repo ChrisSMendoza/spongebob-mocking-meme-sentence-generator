@@ -5,7 +5,7 @@
   "main": "spongebob-mock-meme-generate.js",
   "type": "module",
   "scripts": {
-    "test": "node src/spongebob-mock-meme-generate.test.js"
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
