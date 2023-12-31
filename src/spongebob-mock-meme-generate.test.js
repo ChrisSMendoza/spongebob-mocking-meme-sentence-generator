@@ -1,7 +1,10 @@
 import { strictEqual } from 'node:assert'
 import test from 'node:test'
 
-import { generateSpongebobMockMemeText } from './spongebob-mock-meme-generate.js'
+import {
+    generateSpongebobMockMemeText,
+    UPPERCASE_ODDS_DEFAULT
+} from './spongebob-mock-meme-generate.js'
 
 
 test("Generates meme text with expected distribution", () => {
@@ -16,12 +19,11 @@ test("Generates meme text with expected distribution", () => {
 
     const percentOfLowercase = lowercaseLetters.length / letters.length
     const percentOfUppercase = uppercaseLetters.length / letters.length
-    // TODO: Get this from module
-    const oddsOfUppercase = .30
-    const oddsOfLowercase = 1 - oddsOfUppercase
+
+    const oddsOfLowercase = 1 - UPPERCASE_ODDS_DEFAULT
     const okayDelta = .15
 
-    strictEqual(isWithinRange(percentOfUppercase, oddsOfUppercase, okayDelta), true)
+    strictEqual(isWithinRange(percentOfUppercase, UPPERCASE_ODDS_DEFAULT, okayDelta), true)
     strictEqual(isWithinRange(percentOfLowercase, oddsOfLowercase, okayDelta), true)
 })
 
