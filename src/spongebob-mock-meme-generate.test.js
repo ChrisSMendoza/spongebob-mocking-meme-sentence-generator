@@ -1,20 +1,42 @@
 import { strictEqual } from 'node:assert'
 import test from 'node:test'
 
-import { generateSpongebobMockMemeText } from './spongebob-mock-meme-generate.js'
+import {
+    generateSpongebobMockMemeText,
+    UPPERCASE_ODDS_DEFAULT
+} from './spongebob-mock-meme-generate.js'
 
 
-// TODO: Base test around the number of lowercase and uppercase letters
-test("Generates meme text", () => {
+test("Generates meme text with expected distribution", () => {
     const sentence = "this text is totally not mocking you";
     const memeText = generateSpongebobMockMemeText(sentence)
-    // Naively test there's at least 1 lowercase and uppercase letter
-    const hasLowercase = [...memeText].some(isLowerCase)
-    const hasUppercase = [...memeText].some(isUpperCase)
 
-    strictEqual(hasLowercase, true)
-    strictEqual(hasUppercase, true)
+    const letterRegex = RegExp(/^\p{L}/,'u');
+    const letters = [...memeText].filter((letter) => letterRegex.test(letter))
+
+    const lowercaseLetters = letters.filter(isLowerCase)
+    const uppercaseLetters = letters.filter(isUpperCase)
+
+    const percentOfLowercase = lowercaseLetters.length / letters.length
+    const percentOfUppercase = uppercaseLetters.length / letters.length
+
+    const oddsOfLowercase = 1 - UPPERCASE_ODDS_DEFAULT
+    const okayDelta = .15
+
+    strictEqual(isWithinRange(percentOfUppercase, UPPERCASE_ODDS_DEFAULT, okayDelta), true)
+    strictEqual(isWithinRange(percentOfLowercase, oddsOfLowercase, okayDelta), true)
 })
+
+test("Counts number of letters in sentence", () => {
+    const sentence = "this text is totally not mocking you";
+
+    // TypeError [Error]: Method RegExp.prototype.test called on incompatible receiver undefined
+    // error occurred when regex `test` is passed directly into `filter`
+    const letterRegex = RegExp(/^\p{L}/,'u');
+    const letters = [...sentence].filter((letter) => letterRegex.test(letter))
+
+    strictEqual(letters.length, 30)
+});
 
 test("Lowercase letter detected", () => {
     strictEqual(isLowerCase('a'), true)
@@ -31,6 +53,28 @@ test("Uppercase letter detected", () => {
     strictEqual(isUpperCase('z'), false)
     strictEqual(isUpperCase('a'), false)
 })
+
+test("Numbers can be detected within range", () => {
+    const value = .4
+    const target = .3
+    const delta = .2
+    const offset = .1
+
+    strictEqual(offset < delta, true)
+
+    strictEqual(isWithinRange(value, target, delta), true)
+    strictEqual(isWithinRange(value + offset, target, delta), true)
+    strictEqual(isWithinRange(value - offset, target, delta), true)
+
+    strictEqual(isWithinRange(value + (delta * 2), target, delta), false)
+})
+
+function isWithinRange(actual, target, delta) {
+    const start = target - delta
+    const end = target + delta
+
+    return start <= actual && actual <= end
+}
 
 function isLowerCase(char) {
     return char === char.toLowerCase()
