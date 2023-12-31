@@ -4,16 +4,25 @@ import test from 'node:test'
 import { generateSpongebobMockMemeText } from './spongebob-mock-meme-generate.js'
 
 
-// TODO: Base test around the number of lowercase and uppercase letters
-test("Generates meme text", () => {
+test("Generates meme text with expected distribution", () => {
     const sentence = "this text is totally not mocking you";
     const memeText = generateSpongebobMockMemeText(sentence)
-    // Naively test there's at least 1 lowercase and uppercase letter
-    const hasLowercase = [...memeText].some(isLowerCase)
-    const hasUppercase = [...memeText].some(isUpperCase)
 
-    strictEqual(hasLowercase, true)
-    strictEqual(hasUppercase, true)
+    const letterRegex = RegExp(/^\p{L}/,'u');
+    const letters = [...memeText].filter((letter) => letterRegex.test(letter))
+
+    const lowercaseLetters = letters.filter(isLowerCase)
+    const uppercaseLetters = letters.filter(isUpperCase)
+
+    const percentOfLowercase = lowercaseLetters.length / letters.length
+    const percentOfUppercase = uppercaseLetters.length / letters.length
+    // TODO: Get this from module
+    const oddsOfUppercase = .30
+    const oddsOfLowercase = 1 - oddsOfUppercase
+    const okayDelta = .15
+
+    strictEqual(isWithinRange(percentOfUppercase, oddsOfUppercase, okayDelta), true)
+    strictEqual(isWithinRange(percentOfLowercase, oddsOfLowercase, okayDelta), true)
 })
 
 test("Counts number of letters in sentence", () => {
