@@ -18,16 +18,13 @@ test("Generates meme text", () => {
 
 test("Counts number of letters in sentence", () => {
     const sentence = "this text is totally not mocking you";
-    let count = 0;
 
-    for(const letter of sentence) {
-        let isLetter = RegExp(/^\p{L}/,'u').test(letter)
+    // TypeError [Error]: Method RegExp.prototype.test called on incompatible receiver undefined
+    // error occurred when regex `test` is passed directly into `filter`
+    const letterRegex = RegExp(/^\p{L}/,'u');
+    const letters = [...sentence].filter((letter) => letterRegex.test(letter))
 
-        if(isLetter) {
-            count += 1;
-        }
-    }
-    strictEqual(count, 30)
+    strictEqual(letters.length, 30)
 });
 
 test("Lowercase letter detected", () => {
