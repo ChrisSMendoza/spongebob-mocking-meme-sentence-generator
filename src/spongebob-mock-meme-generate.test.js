@@ -43,6 +43,28 @@ test("Uppercase letter detected", () => {
     strictEqual(isUpperCase('a'), false)
 })
 
+test("Numbers can be detected within range", () => {
+    const value = .4
+    const target = .3
+    const delta = .2
+    const offset = .1
+
+    strictEqual(offset < delta, true)
+
+    strictEqual(isWithinRange(value, target, delta), true)
+    strictEqual(isWithinRange(value + offset, target, delta), true)
+    strictEqual(isWithinRange(value - offset, target, delta), true)
+
+    strictEqual(isWithinRange(value + (delta * 2), target, delta), false)
+})
+
+function isWithinRange(actual, target, delta) {
+    const start = target - delta
+    const end = target + delta
+
+    return start <= actual && actual <= end
+}
+
 function isLowerCase(char) {
     return char === char.toLowerCase()
 }
