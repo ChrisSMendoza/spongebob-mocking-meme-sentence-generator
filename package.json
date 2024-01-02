@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator/issues"
   },
-  "homepage": "https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator#readme"
+  "homepage": "https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
