@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "npx http-server ./src",
-    "test": "node --test"
+    "test": "node --test",
+    "type-check": "tsc --noEmit -p jsconfig.json"
   },
   "repository": {
     "type": "git",
