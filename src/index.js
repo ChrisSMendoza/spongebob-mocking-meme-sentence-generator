@@ -8,8 +8,7 @@ function showMockMemeText(event) {
 
     const mockMemeText = generateSpongebobMockMemeText(userText);
 
-    /** @type {HTMLInputElement | null} */
-    const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
+    const outputTextField = getOutputTextElementOrThrow()
 
     outputTextField.value = mockMemeText;
 }
@@ -19,10 +18,24 @@ copyToClipboardButton?.addEventListener("click", handleOnCopyToClipboard)
 
 function handleOnCopyToClipboard() {
     // Get the meme formatted text that's shown to the user
-
-    /** @type {HTMLInputElement | null} */
-    const { value: spongebobMockMemeText } = document.querySelector("#spongebob-mock-formatted-text");
+    const { value: spongebobMockMemeText } = getOutputTextElementOrThrow()
 
     // Copy the text to their clipboard, user can paste it now
     navigator.clipboard.writeText(spongebobMockMemeText);
+}
+
+/**
+ *
+ * @returns {HTMLInputElement} Output text field
+ * @throws
+ */
+function getOutputTextElementOrThrow() {
+    /** @type {HTMLInputElement | null} */
+    const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
+
+    if(outputTextField) {
+        return outputTextField;
+    }
+
+    throw Error("Output text field was not found in DOM with expected ID")
 }
