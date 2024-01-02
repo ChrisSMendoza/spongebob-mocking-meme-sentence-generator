@@ -9,7 +9,7 @@ import {
 test("Generates meme text with expected distribution", () => {
     const sentence = "this text is totally not mocking you";
     const uppercaseOdds = .30;
-    const memeText = generateSpongebobMockMemeText(sentence, uppercaseOdds)
+    const memeText = generateSpongebobMockMemeText(123, uppercaseOdds)
 
     const letterRegex = RegExp(/^\p{L}/,'u');
     const letters = [...memeText].filter((letter) => letterRegex.test(letter))
