@@ -8,7 +8,7 @@ function showMockMemeText(event) {
 
     const mockMemeText = generateSpongebobMockMemeText(userText);
 
-    /** @type {HTMLInputElement} */
+    /** @type {HTMLInputElement | null} */
     const outputTextField = document.querySelector("#spongebob-mock-formatted-text");
 
     outputTextField.value = mockMemeText;
@@ -20,7 +20,7 @@ copyToClipboardButton.addEventListener("click", handleOnCopyToClipboard)
 function handleOnCopyToClipboard() {
     // Get the meme formatted text that's shown to the user
 
-    /** @type {HTMLInputElement} */
+    /** @type {HTMLInputElement | null} */
     const { value: spongebobMockMemeText } = document.querySelector("#spongebob-mock-formatted-text");
 
     // Copy the text to their clipboard, user can paste it now
