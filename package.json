@@ -5,7 +5,7 @@
   "main": "spongebob-mock-meme-generate.js",
   "type": "module",
   "scripts": {
-    "start": "npx http-server ./src",
+    "start": "npx http-server ./src -c-1",
     "test": "node --test",
     "type-check": "tsc --noEmit -p jsconfig.json"
   },
