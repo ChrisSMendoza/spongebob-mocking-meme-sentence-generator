@@ -11,6 +11,9 @@ on:
 
 jobs:
   build:
+    # Allows us to find this job in the Required Status Checks as `Nodejs CI (21.x)`
+    # See https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator/settings/branch_protection_rules/45490885
+    name: Nodejs CI
 
     runs-on: ubuntu-latest
 
