@@ -1,5 +1,7 @@
 # Spongebob Mock Meme Text Generator
 
+![CI Status Badge](https://github.com/ChrisSMendoza/spongebob-mocking-meme-sentence-generator/actions/workflows/node.js.yml/badge.svg)
+
 Barebones web front-end to generate the Spongebob mocking meme text. It looks like this: "ThIS tExT is tOtally not moCking yOu"
 
 A preview of the text, an input box, a copy button, a link to the meme generator, and a banner to explain how to get lowercase letters in the generator.
