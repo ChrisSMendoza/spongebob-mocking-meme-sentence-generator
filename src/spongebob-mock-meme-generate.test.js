@@ -3,13 +3,13 @@ import test from 'node:test'
 
 import {
     generateSpongebobMockMemeText,
-    UPPERCASE_ODDS_DEFAULT
 } from './spongebob-mock-meme-generate.js'
 
 
 test("Generates meme text with expected distribution", () => {
     const sentence = "this text is totally not mocking you";
-    const memeText = generateSpongebobMockMemeText(sentence)
+    const uppercaseOdds = .30;
+    const memeText = generateSpongebobMockMemeText(sentence, uppercaseOdds)
 
     const letterRegex = RegExp(/^\p{L}/,'u');
     const letters = [...memeText].filter((letter) => letterRegex.test(letter))
@@ -20,11 +20,11 @@ test("Generates meme text with expected distribution", () => {
     const percentOfLowercase = lowercaseLetters.length / letters.length
     const percentOfUppercase = uppercaseLetters.length / letters.length
 
-    const oddsOfLowercase = 1 - UPPERCASE_ODDS_DEFAULT
+    const lowercaseOdds = 1 - uppercaseOdds;
     const okayDelta = .15
 
-    strictEqual(isWithinRange(percentOfUppercase, UPPERCASE_ODDS_DEFAULT, okayDelta), true)
-    strictEqual(isWithinRange(percentOfLowercase, oddsOfLowercase, okayDelta), true)
+    strictEqual(isWithinRange(percentOfUppercase, uppercaseOdds, okayDelta), true)
+    strictEqual(isWithinRange(percentOfLowercase, lowercaseOdds, okayDelta), true)
 })
 
 test("Counts number of letters in sentence", () => {
