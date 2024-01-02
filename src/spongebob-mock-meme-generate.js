@@ -17,6 +17,10 @@ export function generateSpongebobMockMemeText(text, uppercaseOddsFromUser) {
     return lettersForMeme.join("");
 }
 
+/**
+ * @param {string} text
+ * @param {number} uppercaseOdds
+ */
 function uppercaseOrLowercaseRandomly(text, uppercaseOdds) {
 
     if (Math.random() <= uppercaseOdds) {
